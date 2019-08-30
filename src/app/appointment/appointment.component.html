@@ -1,0 +1,100 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col text-center">
+            <h2>Schedule An Appointment</h2>
+        </div>
+    </div>
+            <div class="row d-flex">
+                <div class="col justify-content-center align-self-center text-center mt-3">
+                    <h5>Marvelous Masseuse</h5>
+                    <h6>Email</h6>
+                    <h6>Phone</h6>
+                    <h6>Address</h6>
+                </div>
+            </div>
+                <hr>
+                <div class="row">
+                        <form [formGroup]="form" #postForm="ngForm" (ngSubmit)="submit(postForm.value)">
+                          <div class="questions">
+                              <fieldset formGroupName="contact">
+                                  <legend>Contact Info</legend>
+                                      <label for="name">Name (required)</label>
+                                      <input formControlName="name" id="name" #nameRef required/>
+                                      
+                                          <label for="email">Email (required)</label>
+                                          <input 
+                                          [attr.aria-invalid]="emailIsInvalid"
+                                          formControlName="email" 
+                                          #emailRef
+                                          id="email" 
+                                          type="email" 
+                                          required/>
+                      
+                                          <div
+                                          *ngIf="emailIsInvalid"
+                                          role="alert"
+                                          aria-describedby="email-label"
+                                          tabindex="0"
+                                          class="error">
+                                          Please enter a valid email address.
+                                          </div>
+                                          
+                                          <label for="phone">Phone Number</label>
+                                          <input formControlName="phone" id="phone" />
+                    
+                                          <label for="address">Address</label>
+                                          <input formControlName="address" id="address" />
+                    
+                                          <label class="mt-4" for="details">Project Details</label>
+                                          <textarea class="form-control" formControlName="details" id="details" rows="3"></textarea>
+                    
+                              </fieldset>
+                      
+                                          <fieldset formGroupName="admin">
+                                                  <legend>Miscellaneous Information</legend>
+                                                      <label for="lead">How did you hear about us</label>
+                                                      <input formControlName="lead" id="lead" />
+                                                      
+                                                      <div class="form-check">
+                                                          <input class="form-check-input" type="checkbox" formControlName="newsletter" id="newsletter" value="checked">
+                                                          <label class="form-check-label" for="newsletter">
+                                                            Would you like to sign up for our newsletter?
+                                                          </label>
+                                                        </div>
+                                              </fieldset>
+                          </div>
+                            <div class="row d-flex">
+                              <div class="col justify-content-center align-self-center text-center">
+                                  <div
+                                  *ngIf="this.form.invalid && formStatus === FormStatus.Error"
+                                  role="alert"
+                                  class="status-error">
+                                  The form has the following errors that need to be corrected:
+                              
+                                  <button (click)="emailRef.focus()" *ngIf="form.get('contact')['controls'].email.invalid">
+                                    Please enter a valid email address.
+                                  </button>
+                                  <button (click)="nameRef.focus()" *ngIf="form.get('contact')['controls'].name.invalid">
+                                      Please enter your name.
+                                    </button>
+                                </div>
+                              
+                                <div *ngIf="formStatus === FormStatus.Pending" role="status" class="status-pending">
+                                  Sending ...
+                                </div>
+                              
+                                <div *ngIf="formStatus === FormStatus.Success" role="status" class="status-success">
+                                  Thank you, we'll be in touch!
+                                </div>
+                              
+                                <button class="btn btn-danger btn-lg">Submit</button>
+                              </div>
+                            </div>
+                        </form>
+                    </div>
+                    <hr>
+                    <div id="payment" class="row">
+                        <div class="col text-center">
+                                <app-payment></app-payment>
+                        </div>
+                    </div>

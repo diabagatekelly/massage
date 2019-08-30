@@ -1,0 +1,27 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col text-center">
+            <h2>Admin Login</h2>
+        </div>
+    </div>
+    <div class="row d-flex">
+        <div class="col justify-content-center align-items-center text-center">
+                <div *ngIf="afAuth.auth.currentUser">
+                       <button class="btn btn-danger btn-lg" (click)="logout()">Logout</button>
+                   </div>
+                   <firebase-ui (signInSuccessWithAuthResult)="successCallback($event)"
+                   (signInFailure)="errorCallback($event)"></firebase-ui>
+        </div>
+    </div>
+    <div class="row d-flex">
+            <div class="col justify-content-center align-items-center text-center">
+                    <div *ngIf="!afAuth.auth.currentUser">
+                        <h4>Logged Out</h4>
+                            <firebase-ui (signInSuccessWithAuthResult)="successCallback($event)"
+                           (signInFailure)="errorCallback($event)"></firebase-ui>
+                           <button class="btn btn-danger btn-lg" (click)="logout()">Logout</button>
+                       </div>
+            </div>
+        </div>
+</div>
+

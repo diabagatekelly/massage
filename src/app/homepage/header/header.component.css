@@ -1,0 +1,67 @@
+.bg1 {
+    background: linear-gradient(
+        rgba(255, 255, 255, 0.5),
+        rgba(43, 37, 37, 0.5)
+      ),
+      url("https://images.pexels.com/photos/269131/pexels-photo-269131.jpeg?cs=srgb&dl=bad-flower-massage-269131.jpg&fm=jpg")
+        repeat-y;
+    background-size: cover;
+    text-align: center;
+    color: black;
+    height: 70vh;
+    margin-bottom: 0;
+    position: relative;
+    /* background-position: 0 75%; */
+    animation: animate 15s linear infinite; 
+}
+
+@keyframes animate{
+  0%   {
+    background-position: 0 25%;
+  }
+  100%  {
+    background-position: 0 100%;
+  }
+}
+
+
+.position {
+    position: relative;
+    top: 35%;
+  }
+  
+  .display-3 {
+    text-transform: capitalize;
+    font-weight: 900;
+  }
+
+  @media only screen and (max-height: 400px) {
+    .bg1 {
+      height: 90vh;
+    }
+  }
+
+  @media only screen and (max-width: 400px) {
+    .bg1 {
+      height: 40vh;
+    }
+
+    .display-3 {
+      font-size: 2em;
+    }
+  }
+
+  @media only screen and (min-width: 800px) and (max-width: 1000px) {
+    .display-3 {
+      font-size: 3em;
+    }
+  }
+
+  @media only screen and (min-width: 1000px) {
+    .bg1 {
+      height: 60vh;
+    }
+  }
+
+
+  

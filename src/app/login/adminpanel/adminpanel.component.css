@@ -1,0 +1,57 @@
+.container-fluid {
+    padding: 6em 2em 2em;
+}
+
+.list {
+    margin: 1em auto;
+}
+
+.actions {
+    display: flex;
+    justify-content: flex-start;
+}
+
+label {
+    display: block;
+    margin-right: 1em;
+}
+
+textarea {
+    margin-bottom: 1em;
+}
+.working {
+    /* background-color: green; */
+    color: green;
+}
+
+.off {
+    /* background-color: red; */
+    color: red;
+}
+.dropzone { 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column; 
+    height: 300px;
+    width: 95vw;
+    border: 2px dashed #f16624;
+    border-radius: 5px;
+    background: white;
+    margin: 0 0 1em;
+}
+
+.exit {
+    margin-top: 2em;
+}
+
+form {
+    margin-top: 2em;
+}
+
+
+@media only screen and (max-width: 400px) {
+    .col-xs-12 {
+        margin: 5em auto;
+    }
+}

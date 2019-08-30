@@ -1,0 +1,182 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col text-center">
+            <h2>Admin Panel - Logged in</h2>
+        </div>
+    </div>
+    <div class="row d-flex">
+            <div class="list text-center">
+                <h4>List of Employees</h4>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <button class="btn btn-danger btn-sm" data-toggle="modal" data-target="#exampleModal" (click)="open(createContent)">Add New Employee</button>
+            </div>
+        </div>
+        <div class="row d-flex justify-content-center">
+            <div *ngIf="takeHostSelfie">
+           <span *ngIf="error"><font color="red">Error</font></span>
+<div *ngIf="percentage | async as pct">
+  <progress class="progress is-info" 
+            [value]="pct" 
+            max="100">        
+  </progress>
+  {{ pct | number }}%
+  <br>
+  <span><font color="red">File Uploaded.</font></span>
+</div>
+<button class="btn btn-danger btn-sm exit" type="reset" (click)="takeHostSelfie=false; this.reloadComponent()">close</button>
+<div class="dropzone" 
+     *ngIf="!percentage">
+     <h3>Upload Picture</h3>
+     <div class="file">
+        <label class="file-label">
+        <input class="file-input" type="file" (change)="startUpload($event.target.files)">
+          <span class="file-cta">
+            <span class="file-icon">
+            </span>
+          </span>
+        </label>
+      </div>
+</div>
+<div *ngIf="downloadURL | async as url">
+    <h3>Results!</h3>
+    <img [src]="url" width="300" height="300"><br>
+    <!--<a [href]="url" target="_blank" rel="noopener">Download Me!</a>-->
+  </div> 
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                    <table class="table table-striped" data-sort-name="name" data-sort-order="asc">
+                            <thead>
+                              <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Name</th>
+                                <th scope="col">Bio</th>
+                                <th scope="col">Pictures</th>
+                                <th scope="col">Working</th>
+                                <th scope="col">Actions</th>
+                              </tr>
+                            </thead>
+                            <tbody *ngFor="let emp of employees; let i = index">
+                              <tr>
+                                <th scope="row">{{i}}</th>
+                                <td>{{emp.payload.doc.data().info.name}}</td>
+                                <td>{{emp.payload.doc.data().info.bio}}</td>
+                                <td *ngIf="emp.payload.doc.data().FileURL; else noPic">
+                                    <img [src]="emp.payload.doc.data().FileURL" style="width: 50px; height: 50px">
+                                </td>
+                                <ng-template #noPic>No picture yet.</ng-template>
+                                <td [ngClass]="emp.payload.doc.data().info.working ? 'working' : 'off'" (click)="markWorking(emp); this.updateDocId = emp.payload.doc.id">
+                                    <i class="far fa-check-circle"></i>
+                                  </td>
+                              <td [hidden]="emp.payload.doc.data().info.completed" 
+                              (click)="uploadPic(emp); this.takeHostSelfie = true" data-toggle="tooltip" data-placement="bottom" title="Add/Update Employee Picture">
+                              <i class="fas fa-camera"></i>
+                            </td> 
+                            <td  [hidden]="emp.payload.doc.data().info.completed" 
+                            data-toggle="modal" data-target="#exampleModal" (click)="open(updateContent); this.updateDocId = emp.payload.doc.id" data-toggle="tooltip" data-placement="right" title="Edit Employee">
+                                <i class="fas fa-user-edit"></i>
+                              </td>
+                                <td [hidden]="emp.payload.doc.data().info.completed" 
+                                (click)="deleteEmployees(emp)" data-toggle="tooltip" data-placement="right" title="Delete Employee">
+                                <i class="fas fa-trash-alt"></i>
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+            </div>
+        </div>
+        <div class="row d-flex">
+                <div class="col justify-content-center align-items-center text-center">
+                     <button class="btn btn-danger btn-lg" (click)="logout()">Logout</button>
+                </div>
+            </div>
+</div>
+
+<ng-template #createContent let-modal>
+        <div class="modal-header">
+          <h4 class="modal-title" id="modal-basic-title">Add New Employee</h4>
+          <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="container">
+              <p>Fill out the employee's name and information.</p>
+                <form [formGroup]="form" #postForm="ngForm" (ngSubmit)="submit(postForm.value)">
+                        <div>
+                            <fieldset formGroupName="info">
+                              <div>
+                                  <label for="name">Name (required)</label>
+                                  <input formControlName="name" id="name" #nameRef required/>
+                              </div>
+                              <div>
+                                  <label for="details">Bio (required)</label>
+                                  <textarea class="form-control" formControlName="bio" id="bio" rows="3" required></textarea>
+                              </div>
+                              <div class="form-check">
+                                  <input class="form-check-input" type="checkbox" formControlName="working" id="working" value="checked">
+                                  <label class="form-check-label" for="working">
+                                    Working today
+                                  </label>
+                                </div>
+                            </fieldset>
+                        </div>
+                          <div class="row">
+                            <div class="col">
+                                <button class="btn btn-danger btn-lg">Submit</button>
+                               </div>
+                              <div *ngIf="formStatus === FormStatus.Success" role="status" class="status-success">
+                                New employee added!
+                              </div>
+                            </div>
+                      </form>
+                    </div>
+        </div>
+      </ng-template>
+
+      <ng-template #updateContent let-modal>
+          <div class="modal-header">
+            <h4 class="modal-title" id="modal-basic-title">Update Employee</h4>
+            <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="container">
+                <p>Fill out the field you want to update. Leave any field you do not want to update blank.</p>
+                  <form [formGroup]="form" #postForm="ngForm" (ngSubmit)="updateEmployees(postForm.value)">
+                          <div>
+                              <fieldset formGroupName="info">
+                                <div>
+                                    <label for="name">Name</label>
+                                    <input formControlName="name" id="name"/>
+                                </div>
+                                <div>
+                                    <label for="details">Bio</label>
+                                    <textarea class="form-control" formControlName="bio" id="bio" rows="3"></textarea>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" formControlName="working" id="working" value="checked">
+                                    <label class="form-check-label" for="working">
+                                      Working today
+                                    </label>
+                                  </div>
+                              </fieldset>
+                          </div>
+                            <div class="row">
+                              <div class="col">
+                                  <button class="btn btn-danger btn-lg">Submit</button>
+                                 </div>
+                                <div *ngIf="formStatus === FormStatus.Success" role="status" class="status-success">
+                                  Employee Updated!
+                                </div>
+                              </div>
+                        </form>
+                      </div>
+          </div>
+        </ng-template>
+            

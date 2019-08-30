@@ -1,0 +1,16 @@
+<div class="container-fluid">
+    <div class="row" *ngFor="let emp of employees">
+        <div class="col">
+          <p>{{emp.payload.doc.data().info.name}}</p>  
+          <p>{{emp.payload.doc.data().info.bio}}</p>
+        </div>
+        <div class="col">
+            <img src="{{emp.payload.doc.data().FileURL}}">
+        </div>
+        <button type="button" class="btn btn-primary" *ngIf="emp.payload.doc.data().info.working">
+                Working <span class="badge badge-light">
+                        <i class="far fa-check-circle"></i>
+                </span>
+        </button>
+    </div>
+</div>

@@ -1,0 +1,88 @@
+.container-fluid {
+    padding: 6em 0 1em;
+}
+
+form {
+    width: 50vw;
+    margin: 20px auto;
+  }
+
+  label {
+    display: block;
+  }
+
+  fieldset {
+    display: block;
+    margin-inline-start: 2px;
+    margin-inline-end: 2px;
+    padding-block-start: 0.35em;
+    padding-inline-start: 0.75em;
+    padding-inline-end: 0.75em;
+    padding-block-end: 0.625em;
+    min-inline-size: min-content;
+    border-width: 2px;
+    border-style: groove;
+    border-color: rgba(220, 53, 69, 0.7);
+    ;
+  }
+
+  legend {
+    display: block;
+    width: auto;
+    padding-inline-start: 2px;
+    padding-inline-end: 2px;
+  }
+  
+  input, fieldset {
+    margin-bottom: 24px;
+  }
+
+  input {
+    width: 100%;
+  }
+
+  [aria-hidden='true'] {
+    display: none;
+  }
+  
+  [aria-invalid='true'] {
+    border: 1px solid red;
+  }
+  
+  .error {
+    margin-top: -24px;
+    margin-bottom: 24px;
+    color: red;
+  }
+  
+  .status-error, .status-pending, .status-success {
+    margin: 24px 0;
+    border: 2px solid black;
+    padding: 12px;
+  }
+  
+  .status-error {
+    border-color: red;
+    color: red;
+  }
+  
+  .status-error button {
+    display: block;
+    border: 0;
+    color: red;
+    text-decoration: underline;
+    cursor: pointer;
+    padding: 12px;
+    font-size: 16px;
+   margin: auto;
+  }
+  
+  .status-pending {
+    border-color: orange;
+    color: black;
+  }
+  
+  .status-success {
+    border-color: green;
+    color: green;
+  }
