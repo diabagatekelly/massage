@@ -1,3 +1,6 @@
-.container-fluid {
-    padding: 6em 0 1em;
-}
+
+.title {
+    height: 10vh;
+    background-color: rgba(150, 40, 27, 1);
+    color: white;
+  }

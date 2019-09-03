@@ -8,11 +8,12 @@ import AOS from 'aos';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
-
+  isCollapsed;
   constructor() { }
 
   ngOnInit() {
     AOS.init();
   }
+
 
 }

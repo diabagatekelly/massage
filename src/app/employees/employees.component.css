@@ -1,3 +1,26 @@
-.container-fluid {
-    padding: 6em 2em 2em;
+.emp {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 2em 0;
+}
+
+.img-fluid {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    border: 1px solid black;
+}
+
+.text, .pic {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+@media only screen and (max-width: 600px) {
+    .text, .pic {
+        flex: 1 100%;
+    }
 }

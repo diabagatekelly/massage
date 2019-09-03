@@ -43,8 +43,7 @@ export class PaymentComponent implements AfterViewChecked, OnInit {
     style: {
             label: 'paypal',
             layout: 'horizontal',
-            size: 'large'
-
+            size: 'medium'
           },
     onAuthorize: (data, actions) => {
       return actions.payment.execute().then((payment) => {

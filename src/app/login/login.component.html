@@ -1,25 +1,23 @@
 <div class="container-fluid">
-    <div class="row">
-        <div class="col text-center">
-            <h2>Admin Login</h2>
+    <div class="row d-flex title">
+        <div class="col align-self-center text-center">
+            <h2>Admin</h2>
         </div>
     </div>
-    <div class="row d-flex">
+    <div class="row d-flex p*-2">
         <div class="col justify-content-center align-items-center text-center">
                 <div *ngIf="afAuth.auth.currentUser">
-                       <button class="btn btn-danger btn-lg" (click)="logout()">Logout</button>
-                   </div>
-                   <firebase-ui (signInSuccessWithAuthResult)="successCallback($event)"
-                   (signInFailure)="errorCallback($event)"></firebase-ui>
+                    <h4>You are still logged in</h4>
+                    <button routerLink="/admin-panel" class="btn btn-danger btn-lg mr-2">Go to Admin Panel</button>
+                    <button class="btn btn-danger btn-lg" (click)="logout()">Logout</button>
         </div>
     </div>
     <div class="row d-flex">
             <div class="col justify-content-center align-items-center text-center">
                     <div *ngIf="!afAuth.auth.currentUser">
-                        <h4>Logged Out</h4>
+                        <h4>You are Logged Out</h4>
                             <firebase-ui (signInSuccessWithAuthResult)="successCallback($event)"
                            (signInFailure)="errorCallback($event)"></firebase-ui>
-                           <button class="btn btn-danger btn-lg" (click)="logout()">Logout</button>
                        </div>
             </div>
         </div>

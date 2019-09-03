@@ -1,10 +1,19 @@
-.container-fluid {
-    padding: 6em 0 1em;
+.title {
+  height: 10vh;
+  background-color: rgba(150, 40, 27, 1);
+  color: white;
+}
+
+h3, h5 {
+   font-family: Montserrat, sans-serif;
+   font-style: normal;
+   font-weight: 700;
 }
 
 form {
-    width: 50vw;
+    width: 75vw;
     margin: 20px auto;
+    font-weight: 900;
   }
 
   label {
@@ -22,7 +31,10 @@ form {
     min-inline-size: min-content;
     border-width: 2px;
     border-style: groove;
-    border-color: rgba(220, 53, 69, 0.7);
+    border-color: rgba(150, 40, 27, 1);
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 10px;
+    box-shadow: 2px 2px 1px gray;
     ;
   }
 
@@ -85,4 +97,34 @@ form {
   .status-success {
     border-color: green;
     color: green;
+  }
+
+  .form-check {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .form-check input {
+    width: auto;
+  }
+
+  .fixed-parallax .row {
+    position: relative;
+    background-attachment: fixed;
+    background-position: center top;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+  .fixed-parallax .four {
+    background-image: linear-gradient(
+        rgba(255, 255, 255, 0.5),
+        rgba(255, 255, 255, 0.5)
+      ), url('https://apolitical.co/wp-content/uploads/2017/05/scammers-1000x670.jpg');
+  }
+
+  @media only screen and (max-width: 400px) {
+    form {
+      width: 85vw;
+    }
   }
