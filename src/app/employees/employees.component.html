@@ -1,4 +1,9 @@
 <div class="container-fluid">
+        <div class="row title">
+                <div class="col d-flex text-left">
+                    <h2 class="align-self-center">Employees</h2>
+                </div>
+            </div>
     <div class="row emp" *ngFor="let emp of employees">
         <div class="col text">
           <p>{{emp.payload.doc.data().info.name}}</p>  

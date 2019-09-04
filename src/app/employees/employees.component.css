@@ -6,6 +6,20 @@
     padding: 2em 0;
 }
 
+.title {
+    height: 30vh;
+    background: url("https://cdn.pixabay.com/photo/2017/10/24/13/58/essential-oils-2884618_1280.jpg") no-repeat;
+    background-size: cover;
+    background-position: center;
+    color: black;
+    padding-right: 0;
+  }
+  
+  h2 {
+    font-weight: 900;
+    padding-left: 2em;
+  }
+
 .img-fluid {
     width: 200px;
     height: 200px;

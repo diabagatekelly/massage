@@ -9,6 +9,7 @@ import AOS from 'aos';
 })
 export class NavbarComponent implements OnInit {
   isCollapsed;
+
   constructor() { }
 
   ngOnInit() {

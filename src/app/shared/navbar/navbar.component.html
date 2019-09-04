@@ -1,29 +1,30 @@
 <div class="container-fluid">
     <div class="row d-flex contact">
-      <div data-aos="slide-down" class="col-xs-12 col-sm-8 align-self-center text-left">
-            marvelous.masseuse01gmail.com | 2065368200
+      <div data-aos="slide-down" class="col align-self-center text-left phone mt-3">
+          <p>marvelous.masseuse01gmail.com</p>  
+          <p>206-536-8200</p>
+      </div>
+      <div class="col align-self-center text-center title">
+          <a routerLink="/home"><h1>Marvelous Masseuse</h1></a> 
       </div>
         <div data-aos="slide-down" class="col-xs-12 col-sm-2 text-right align-self-center">
             <a routerLink ="#"><i class="fab fa-facebook mr-2"></i></a>
             <a routerLink ="#"><i class="fab fa-instagram mr-2"></i></a>    
             <a routerLink ="#"><i class="fab fa-twitter mr-2"></i></a>
         </div>
-        <div data-aos="slide-down" class="col-sm-2 col-xs-12 text-right">
+        <div data-aos="slide-down" class="col-sm-2 col-xs-12 text-right align-self-center">
             <a routerLink="/appointment"><button class="btn btn-danger btn-sm">Book appointment</button></a> 
         </div>
   </div>
-    <div class="row d-flex title">
-      <div class="col align-self-center justify-content-center text-center">
-         <a routerLink="/home"><h1>Marvelous Masseuse</h1></a>   
-      </div>
-  </div>
   </div>
 <nav class="navbar navbar-expand-lg navbar-light bg-white">
-    <button (click)="isCollapsed = !isCollapsed" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+    <button (click)="isCollapsed = !isCollapsed" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="true" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <span class="navbar-toggler" data-toggle="collapse" data-target="#navbarText" aria-expanded="false"  (click)="isCollapsed = !isCollapsed"><i class="far fa-window-close"></i></span>
-    <div [class.show]="!isCollapsed" class="collapse navbar-collapse" id="navbarText">
+    <span (click)="isCollapsed = !isCollapsed" [class.show]="isCollapsed" class="collapse navbar-collapse" id="navbarText">
+        <i class="far fa-window-close"></i>
+    </span>
+    <div [class.show]="isCollapsed" class="collapse navbar-collapse" id="navbarText">
       <ul class="navbar-nav text-center mx-auto">
         <li class="nav-item active">
           <a class="nav-link" routerLink="/home">Home <span class="sr-only">(current)</span></a>

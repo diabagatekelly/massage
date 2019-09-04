@@ -1,7 +1,13 @@
 .title {
-  height: 10vh;
-  background-color: rgba(150, 40, 27, 1);
+  height: 30vh;
+  background: url("../../assets/images/background.jpg") no-repeat;
+  background-size: cover;
+  background-position: 5%;
   color: white;
+  padding-right: 0;
+}
+h2 {
+  font-weight: 900;
 }
 
 h3, h5 {
