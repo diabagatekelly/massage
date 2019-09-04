@@ -5,6 +5,7 @@ import { AppointmentComponent } from './appointment/appointment.component';
 import { LoginComponent } from './login/login.component';
 import { AdminpanelComponent } from './login/adminpanel/adminpanel.component';
 import { EmployeesComponent } from './employees/employees.component';
+import { AuthGuardService } from './services/auth-guard.service';
 
 
 const routes: Routes = [
@@ -12,7 +13,7 @@ const routes: Routes = [
   { path: 'home', component: HomepageComponent },
   { path: 'appointment', component: AppointmentComponent},
   { path: 'admin', component: LoginComponent},
-  { path: 'admin-panel', component: AdminpanelComponent},
+  { path: 'admin-panel', component: AdminpanelComponent, canActivate: [AuthGuardService]},
   { path: 'employees', component: EmployeesComponent},
 ];
 

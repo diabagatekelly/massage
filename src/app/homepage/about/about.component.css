@@ -92,13 +92,13 @@ padding: 1em;
 }
 
 @media only screen and (max-width: 450px) {
-    /* h3 {
-        font-size: 0.5em;
-    }*/
+    /* h2 {
+        font-size: 1.2em;
+    }     */
 
     h3 {
-        font-size: 1em;
-        line-height: 1.2em;
+        font-size: 0.9em;
+        line-height: 1.5;
     } 
     .grid1, .grid2 {
         height: 100vh;
@@ -128,7 +128,8 @@ padding: 1em;
 
 @media only screen and (min-width: 450px) and (max-width: 750px) {
     h3 {
-        font-size: 1em;
+        font-size: 0.8em;
+        line-height: 1.5;
     }
 
     .grid2right {
@@ -136,7 +137,7 @@ padding: 1em;
     }
 
     h2 {
-        font-size: 1.3em;
+        font-size: 1.2em;
     }
 
     .btn-lg {
@@ -157,7 +158,7 @@ padding: 1em;
     } 
 
     h3 {
-        font-size: 1.2em;
+        font-size: 1.1em;
     }
 
     h2 {
@@ -179,7 +180,7 @@ padding: 1em;
     }
 
     h3 {
-        font-size: 1.1em;
+        font-size: 1em;
     }
 
     .btn-lg {
@@ -192,15 +193,15 @@ padding: 1em;
 
 @media only screen and (min-width: 1000px) and (max-width: 1200px){
     .grid1, .grid2 {
-        height: 60vh;
+        height: 100vh;
     }
 
     h2 {
-        font-size: 1.5em;
+        font-size: 1.7em;
     }
 
     h3 {
-        font-size: 1.3em;
+        font-size: 1.5em;
     }
 }
 
@@ -210,7 +211,7 @@ padding: 1em;
     }
 
     h3 {
-        font-size: 2em;
+        font-size: 1.7em;
     }
 
     .btn-lg {

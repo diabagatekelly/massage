@@ -33,10 +33,6 @@ const firebaseUiAuthConfig: firebaseui.auth.Config = {
   signInFlow: 'popup',
   signInOptions: [
     firebase.auth.GoogleAuthProvider.PROVIDER_ID,
-    {
-      requireDisplayName: false,
-      provider: firebase.auth.EmailAuthProvider.PROVIDER_ID
-    }
   ],
   tosUrl: '/admin-panel',
   privacyPolicyUrl: '<your-privacyPolicyUrl-link>',

@@ -126,6 +126,10 @@ export class FirebaseService {
         return this.afAuth.authState;
     }
 
+    getUser(): Promise<any> {
+        return this.afAuth.authState.pipe(take(1)).toPromise();
+      }
+
     // function to send emails using a PHP API
     // sendEmail(messageData) {
     //     const httpOptions = {
