@@ -97,7 +97,7 @@ padding: 1em;
     }     */
 
     h3 {
-        font-size: 0.9em;
+        font-size: 0.8em;
         line-height: 1.5;
     } 
     .grid1, .grid2 {
@@ -202,6 +202,12 @@ padding: 1em;
 
     h3 {
         font-size: 1.5em;
+    }
+
+    @media only screen and (min-height: 800px) {
+        .grid1, .grid2 {
+            height: 50vh;
+        }
     }
 }
 

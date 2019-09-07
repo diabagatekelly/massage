@@ -1,5 +1,39 @@
 .container-fluid {
     background-color: black;
     color: white;
-    padding: 1em;
+    padding-top: 2em;
 }
+
+.row {
+    margin: 0;
+}
+
+ul {
+    padding: 0;
+    margin: 0;
+}
+
+ul li {
+    list-style-type: none;
+    font-weight: 500;
+}
+
+ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+ul li a:hover {
+    color: rgba(150, 40, 27, 1);
+    font-weight: 700;
+    text-decoration: none;
+    transform: translate(1%, 1%) scale(1.10);
+}
+
+ul li:hover {
+    /* color: lightblue; */
+    font-weight: 700;
+    text-decoration: none;
+    transform: translate(1%, 1%) scale(1.10);
+}
+

@@ -24,13 +24,22 @@
     width: 200px;
     height: 200px;
     border-radius: 50%;
-    border: 1px solid black;
+    border: 2px solid rgba(150, 40, 27, 1);
 }
 
 .text, .pic {
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+.btn-primary {
+  background-color: rgba(150, 40, 27, 1);
+  border-color: black;
+}
+
+.badge-light {
+  color: green;
 }
 
 @media only screen and (max-width: 600px) {

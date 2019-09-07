@@ -39,6 +39,18 @@ export class FirebaseService {
     });
 }
 
+createContact(data, timestamp) {
+    console.log(timestamp);
+    return new Promise<any>((resolve, reject) => {
+        this.afs
+                .collection('contact')
+                .add({
+                    'created_time': timestamp,
+                    data
+                });
+});
+}
+
     getEmployees() {
          return this.afs.collection('employees').snapshotChanges();
         // return this.afs.collection('employees', ref =>

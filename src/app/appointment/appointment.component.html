@@ -1,18 +1,21 @@
 <div class="container-fluid">
     <div class="row title">
         <div class="col d-flex text-left">
-            <h2 class="align-self-center pl-4">Schedule An Appointment</h2>
+            <h2 class="align-self-center pl-4">Book a Spa Day</h2>
         </div>
     </div>
-            <div class="row d-flex">
+            <div class="row d-flex address">
                 <div class="col justify-content-center align-self-center text-center mt-3 mb-3">
                     <h3>Marvelous Masseuse</h3>
                     <h5>marvelous.masseuse01@gmail.com</h5>
-                    <h5>206-536-8200</h5>
+                    <h5>206-408-8922</h5>
                     <h5>2020 S. 360 st., Federal Way, WA 98093</h5>
                 </div>
             </div>
-                <div id="parallax" class="fixed-parallax">
+            <div class="navbar">
+                <img src="https://igotyourbackmassage.com/wp-content/uploads/2019/03/Humans-Have-Used-Aromatherapy-Thousands-of-Years.jpeg">
+            </div>
+                <div id="parallax">
                 <div class="row four">
                         <form [formGroup]="form" #postForm="ngForm" (ngSubmit)="submit(postForm.value)">
                           <div class="questions">
@@ -79,11 +82,11 @@
                                     </button>
                                 </div>
                               
-                                <div *ngIf="formStatus === FormStatus.Pending" role="status" class="status-pending">
+                                <div *ngIf="formStatus === FormStatus.Pending" role="status" class="status-pending address">
                                   Sending ...
                                 </div>
                               
-                                <div *ngIf="formStatus === FormStatus.Success" role="status" class="status-success">
+                                <div *ngIf="formStatus === FormStatus.Success" role="status" class="status-success address">
                                   Thank you, we'll be in touch!
                                 </div>
                               
@@ -94,5 +97,6 @@
                     </div>
                     </div>
                     </div>
-                      <app-payment></app-payment>
+                        <app-payment></app-payment>
+                   
                         

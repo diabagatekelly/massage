@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators, FormArray } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
+import { FirebaseService } from '../services/firebase.service';
+import { timestamp } from 'rxjs/operators';
 
 export enum FormStatus {
   Initial,
@@ -15,6 +17,7 @@ export enum FormStatus {
   styleUrls: ['./appointment.component.css']
 })
 export class AppointmentComponent implements OnInit {
+  dataLoading = false;
   readonly FormStatus = FormStatus;
   formStatus = FormStatus.Initial;
 
@@ -40,27 +43,28 @@ export class AppointmentComponent implements OnInit {
     && (this.form.controls.contact as FormArray).controls['email'].touched;
   }
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private firebase: FirebaseService) {}
 
   ngOnInit() {}
 
-  submit(postData: {name: string, email: string, phone: string, details: string}) {
-      console.log(postData);
-      this.formStatus = FormStatus.Pending;
+  get timestamp() {
+    const d = new Date();
+    return d;
+    // return firebase.firestore.FieldValue.serverTimestamp();
+}
 
-      if (this.form.valid) {
-        setTimeout(() => { // simulate a async http call
-          this.http.post('https://brc-developers-a4969.firebaseio.com/contact.json', postData).subscribe(
-        responseData => {
-          console.log(responseData);
-        }
-      );
-          this.formStatus = FormStatus.Success;
-          console.log(this.form.value);
-          this.form.reset();
-        }, 3000);
-      } else {
-        this.formStatus = FormStatus.Error;
-      }
+  submit(postData: {name: string, email: string, phone: string, address: string, details: string, newsletter: boolean}) {
+    this.formStatus = FormStatus.Pending;
+
+    setTimeout(() => {
+      this.dataLoading = true;
+      const timestamp = this.timestamp;
+      this.firebase.createContact(postData, timestamp).then(res => {
+      console.log('im running');
+    });
+      this.dataLoading = false;
+      this.formStatus = FormStatus.Success;
+      this.form.reset();
+    }, 3000)
     }
   }

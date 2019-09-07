@@ -7,6 +7,7 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 import {FirebaseUIModule, firebase, firebaseui} from 'firebaseui-angular';
 import { environment } from '../environments/environment';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { NgxPayPalModule } from 'ngx-paypal';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -27,7 +28,6 @@ import { AdminpanelComponent } from './login/adminpanel/adminpanel.component';
 import { DropZoneDirective } from './shared/dropzone.directive';
 import { FileSizeFormatPipe } from './shared/filesize.pipe';
 import { EmployeesComponent } from './employees/employees.component';
-import { CarouselDirective } from './shared/carousel.directive';
 
 const firebaseUiAuthConfig: firebaseui.auth.Config = {
   signInFlow: 'popup',
@@ -55,7 +55,6 @@ const firebaseUiAuthConfig: firebaseui.auth.Config = {
     DropZoneDirective,
     FileSizeFormatPipe,
     EmployeesComponent,
-    CarouselDirective
 
   ],
   imports: [
@@ -71,6 +70,7 @@ const firebaseUiAuthConfig: firebaseui.auth.Config = {
     AngularFireStorageModule,
     FirebaseUIModule.forRoot(firebaseUiAuthConfig),
     NgbModule,
+    NgxPayPalModule
   ],
   providers: [FirebaseService],
   bootstrap: [AppComponent]

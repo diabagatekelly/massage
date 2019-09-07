@@ -12,7 +12,9 @@ export const environment = {
     storageBucket: "marvelousmasseuse-fed7f.appspot.com",
     messagingSenderId: "723492211051",
     appId: "1:723492211051:web:258b7a9df19399a5"
-  }
+  },
+  paypalID: 'AcXwxoeF2NgxrdtbPK_xwXE48BShn9N2Dzl0tQh_-D3xsxpepDjDsdIjkfHGZVnJvOPgQn3YlyesB0BU',
+  env: 'sandbox'
 };
 
 /*
