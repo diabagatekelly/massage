@@ -8,7 +8,7 @@
         <div class="col justify-content-center align-items-center text-center">
                 <div *ngIf="afAuth.auth.currentUser">
                     <h4 class="mb-5">You are logged in</h4>
-                    <button routerLink="/admin-panel" class="btn btn-danger btn-lg mr-2">Go to Admin Panel</button>
+                    <button routerLink="/admin-panel" class="btn btn-danger btn-lg mr-2 mb-4">Go to Admin Panel</button>
                     <button class="btn btn-danger btn-lg" (click)="logout()">Logout</button>
         </div>
         <div *ngIf="!afAuth.auth.currentUser">

@@ -39,6 +39,7 @@ textarea {
     border-radius: 5px;
     background: white;
     margin: 0 0 1em;
+    padding: 2em;
 }
 
 .exit {
@@ -49,6 +50,9 @@ form {
     margin-top: 2em;
 }
 
+input {
+    max-width: 14em;
+}
 
 @media only screen and (max-width: 400px) {
     .col-xs-12 {
