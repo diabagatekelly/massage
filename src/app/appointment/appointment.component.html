@@ -7,8 +7,8 @@
             <div class="row d-flex address">
                 <div class="col justify-content-center align-self-center text-center mt-3 mb-3">
                     <h3>Marvelous Masseuse</h3>
-                    <h5>marvelous.masseuse01@gmail.com</h5>
-                    <h5>206-408-8922</h5>
+                    <a href="mailto:marvelous.masseuse01gmail.com"><h5>marvelous.masseuse01gmail.com</h5></a>
+                    <a href="tel:2089192603"><h5>208-919-2603</h5></a>
                     <h5>2020 S. 360 st., Federal Way, WA 98093</h5>
                 </div>
             </div>
@@ -23,16 +23,16 @@
                                   <legend>Contact Info</legend>
                                       <label for="name">Name (required)</label>
                                       <input formControlName="name" id="name" #nameRef required/>
-                                      
+
                                           <label for="email">Email (required)</label>
-                                          <input 
+                                          <input
                                           [attr.aria-invalid]="emailIsInvalid"
-                                          formControlName="email" 
+                                          formControlName="email"
                                           #emailRef
-                                          id="email" 
-                                          type="email" 
+                                          id="email"
+                                          type="email"
                                           required/>
-                      
+
                                           <div
                                           *ngIf="emailIsInvalid"
                                           role="alert"
@@ -41,23 +41,23 @@
                                           class="error">
                                           Please enter a valid email address.
                                           </div>
-                                          
+
                                           <label for="phone">Phone Number</label>
                                           <input formControlName="phone" id="phone" />
-                    
+
                                           <label for="address">Full Address</label>
                                           <input formControlName="address" id="address" />
-                    
+
                                           <label class="mt-4" for="details">Additional Info</label>
                                           <textarea class="form-control" formControlName="details" id="details" rows="3"></textarea>
-                    
+
                               </fieldset>
-                      
+
                                           <fieldset formGroupName="admin">
                                                   <legend>Miscellaneous Information</legend>
                                                       <label for="lead">How did you hear about us?</label>
                                                       <input formControlName="lead" id="lead" />
-                                                      
+
                                                       <div class="form-check">
                                                           <label class="form-check-label" for="newsletter">
                                                             Sign up for newsletter
@@ -73,7 +73,7 @@
                                   role="alert"
                                   class="status-error">
                                   The form has the following errors that need to be corrected:
-                              
+
                                   <button (click)="emailRef.focus()" *ngIf="form.get('contact')['controls'].email.invalid">
                                     Please enter a valid email address.
                                   </button>
@@ -81,15 +81,15 @@
                                       Please enter your name.
                                     </button>
                                 </div>
-                              
+
                                 <div *ngIf="formStatus === FormStatus.Pending" role="status" class="status-pending address">
                                   Sending ...
                                 </div>
-                              
+
                                 <div *ngIf="formStatus === FormStatus.Success" role="status" class="status-success address">
                                   Thank you, we'll be in touch!
                                 </div>
-                              
+
                                 <button class="btn btn-danger btn-lg">Submit</button>
                               </div>
                             </div>
@@ -98,5 +98,4 @@
                     </div>
                     </div>
                         <app-payment></app-payment>
-                   
-                        
+

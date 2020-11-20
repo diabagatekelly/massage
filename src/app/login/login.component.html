@@ -13,9 +13,29 @@
         </div>
         <div *ngIf="!afAuth.auth.currentUser">
                 <h4 class="mb-5">You are Logged Out</h4>
-                    <firebase-ui (signInSuccessWithAuthResult)="successCallback($event)"
-                   (signInFailure)="errorCallback($event)"></firebase-ui>
-               </div>
+                <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+                  <div class="form-group">
+                      <label for="username">Username</label>
+                      <input type="text" formControlName="username" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.username.errors }" />
+                      <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
+                          <div *ngIf="f.username.errors.required">Username is required</div>
+                      </div>
+                  </div>
+                  <div class="form-group">
+                      <label for="password">Password</label>
+                      <input type="password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
+                      <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                          <div *ngIf="f.password.errors.required">Password is required</div>
+                      </div>
+                  </div>
+                  <p *ngIf="error" style="color: red; text-align: left; font-weight: bold; font-size: 1em">The username or password is incorrect, please try again.</p>
+                  <div class="form-group">
+                      <button [disabled]="loading" class="btn btn-primary my-1">Login</button>
+                  </div>
+                </form>
+                    <!-- <firebase-ui (signInSuccessWithAuthResult)="successCallback($event)"
+                   (signInFailure)="errorCallback($event)"></firebase-ui> -->
+        </div>
     </div>
 </div>
 </div>

@@ -130,6 +130,10 @@ createContact(data, timestamp) {
             .delete();
      }
 
+     logIn(username, password) {
+      return this.afAuth.auth.signInWithEmailAndPassword(username, password);
+    }
+
     // getConfig() {
     //     return environment.social;
     // }

@@ -6,10 +6,23 @@
   color: white;
   padding-right: 0;
 }
+
 h2 {
   font-weight: 900;
   padding-left: 2em;
 }
+
 .row {
   padding: 2em;
+}
+
+form .form-group label {
+  float: left;
+}
+
+@media only screen and (min-width: 450px) {
+  form {
+    max-width: 60%;
+    margin: 0 auto;
+  }
 }

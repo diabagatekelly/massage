@@ -13,6 +13,10 @@
   background-color: rgba(255, 255, 255, 1);
 }
 
+.address a {
+  color: black
+}
+
 .navbar img {
   width: 100vw;
   height: 100vh;
@@ -69,7 +73,7 @@ form {
     padding-inline-start: 2px;
     padding-inline-end: 2px;
   }
-  
+
   input, fieldset {
     margin-bottom: 24px;
   }
@@ -81,28 +85,28 @@ form {
   [aria-hidden='true'] {
     display: none;
   }
-  
+
   [aria-invalid='true'] {
     border: 1px solid red;
   }
-  
+
   .error {
     margin-top: -24px;
     margin-bottom: 24px;
     color: red;
   }
-  
+
   .status-error, .status-pending, .status-success {
     margin: 24px 0;
     border: 2px solid black;
     padding: 12px;
   }
-  
+
   .status-error {
     border-color: red;
     color: red;
   }
-  
+
   .status-error button {
     display: block;
     border: 0;
@@ -113,12 +117,12 @@ form {
     font-size: 16px;
    margin: auto;
   }
-  
+
   .status-pending {
     border-color: orange;
     color: black;
   }
-  
+
   .status-success {
     border-color: green;
     color: green;

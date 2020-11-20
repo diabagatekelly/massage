@@ -1,7 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {AngularFireAuth} from '@angular/fire/auth';
-import {FirebaseUISignInSuccessWithAuthResult, FirebaseUISignInFailure, FirebaseuiAngularLibraryService} from 'firebaseui-angular';
 import {Router} from '@angular/router';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FirebaseService } from '../services/firebase.service';
+
 
 
 @Component({
@@ -10,57 +12,46 @@ import {Router} from '@angular/router';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+  loginForm: FormGroup;
+    loading = false;
+    submitted = false;
+    error = false;
 
-  constructor(public afAuth: AngularFireAuth, private router: Router,
-              private firebaseuiAngularLibraryService: FirebaseuiAngularLibraryService) {
-                firebaseuiAngularLibraryService.firebaseUiInstance.disableAutoSignIn();
+
+  constructor(public afAuth: AngularFireAuth, private router: Router, private formBuilder: FormBuilder, private firebase: FirebaseService) {
               }
 
   ngOnInit() {
+    this.error = false;
     this.afAuth.authState.subscribe(d => console.log(d));
 
-    // const uiConfig = {
-    //   signInSuccessUrl: '/admin-panel',
-    //   signInOptions: [
-    //     // Leave the lines as is for the providers you want to offer your users.
-    //     firebase.auth.EmailAuthProvider.PROVIDER_ID,
-    //     firebase.auth.GoogleAuthProvider.PROVIDER_ID
-    //   ],
-
-    //   callbacks: {
-    //     signInSuccessWithAuthResult: this.onLoginSuccessful.bind(this)
-    //   }
-
-
-      // tosUrl and privacyPolicyUrl accept either url string or a callback
-      // function.
-      // Terms of service url/callback.
-      // tosUrl: '<your-tos-url>',
-      // Privacy policy url/callback.
-      // privacyPolicyUrl: function() {
-      //   window.location.assign('<your-privacy-policy-url>');
-      // }
-//     };
-
-//     this.ui = new firebaseui.auth.AuthUI(this.afAuth.auth);
-//     this.ui.start('#firebaseui-auth', uiConfig);
-
-//    onLoginSuccessful() {
-//       console.log('sign-in successful');
-// }
+    this.loginForm = this.formBuilder.group({
+      username: ['', Validators.required],
+      password: ['', Validators.required]
+  });
   }
+
+  get f() { return this.loginForm.controls; }
 
   logout() {
     this.afAuth.auth.signOut();
   }
 
-  successCallback(data: FirebaseUISignInSuccessWithAuthResult) {
-    console.log('successCallback', data);
-    this.router.navigate(['admin-panel']);
-  }
+  onSubmit() {
+    // stop here if form is invalid
+    if (this.loginForm.invalid) {
+        return;
+    }
 
-  errorCallback(data: FirebaseUISignInFailure) {
-    console.warn('errorCallback', data);
+    return this.firebase.logIn(this.f.username.value, this.f.password.value)
+    .then(() => {
+          this.router.navigate(['admin-panel']);
+        },
+        error => {
+            console.log(error);
+            this.router.navigate(['/login']);
+            this.error = true;
+        });
   }
 
 }

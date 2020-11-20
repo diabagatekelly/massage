@@ -36,6 +36,10 @@
     color: white;
     text-decoration: none;
   }
+
+  .phone a {
+    color: white
+  }
   /* .title {
     background-color: rgba(150, 40, 27, 1);
   } */
@@ -51,7 +55,7 @@
 
   .title a:hover{
     text-decoration: none;
-  } 
+  }
 
   /* svg:not(:root).svg-inline--fa {
     display: none;
@@ -66,7 +70,7 @@
     /* svg:not(:root).svg-inline--fa {
       display: inline;
     } */
-    
+
   }
 
   @media only screen and (min-width: 600px) and (max-width: 1000px) {
