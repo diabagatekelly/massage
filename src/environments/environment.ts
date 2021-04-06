@@ -5,13 +5,13 @@
 export const environment = {
   production: false,
   firebase: {
-    apiKey: "AIzaSyCKGdFDn0OR3ijrAnd-bDdTI0W6ZBmHIcg",
-    authDomain: "marvelousmasseuse-fed7f.firebaseapp.com",
-    databaseURL: "https://marvelousmasseuse-fed7f.firebaseio.com",
-    projectId: "marvelousmasseuse-fed7f",
-    storageBucket: "marvelousmasseuse-fed7f.appspot.com",
-    messagingSenderId: "723492211051",
-    appId: "1:723492211051:web:258b7a9df19399a5"
+    apiKey: "AIzaSyB7jy4yX6K1JMpWTHvxxSsJ-z2aex6eQPw",
+    authDomain: "marvelous-masseuse.firebaseapp.com",
+    projectId: "marvelous-masseuse",
+    storageBucket: "marvelous-masseuse.appspot.com",
+    messagingSenderId: "464430039772",
+    appId: "1:464430039772:web:1f4e595aa6f553c3a12a19",
+    measurementId: "G-YVZW0K2TT7"
   },
   paypalID: 'AcXwxoeF2NgxrdtbPK_xwXE48BShn9N2Dzl0tQh_-D3xsxpepDjDsdIjkfHGZVnJvOPgQn3YlyesB0BU',
   env: 'sandbox'
